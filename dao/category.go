@@ -5,6 +5,16 @@ import (
 	"wy-go-blog/models"
 )
 
+func GetCategoryNameById(cId int) string {
+	row := DB.QueryRow("select name from blog_category where cid = ?", cId)
+	if row.Err() != nil {
+		log.Println(row.Err())
+	}
+	var categoryName string
+	_ = row.Scan(&categoryName)
+	return categoryName
+}
+
 func GetAllCategory() ([]models.Category, error) {
 	query, err := DB.Query("select * from blog_category")
 	if err != nil {
@@ -22,4 +32,14 @@ func GetAllCategory() ([]models.Category, error) {
 		categorys = append(categorys, category)
 	}
 	return categorys, nil
+}
+
+func GetUserNameById(id int) string {
+	row := DB.QueryRow("select user_name from blog_user where uid = ?", id)
+	if row.Err() != nil {
+		log.Println(row.Err())
+	}
+	var userName string
+	_ = row.Scan(&userName)
+	return userName
 }
