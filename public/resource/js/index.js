@@ -1,6 +1,6 @@
 var TOKEN_KEY = "AUTH_TOKEN";
 var USER_KEY = "USER_INFO";
-var SALT = "mszlu"; // 加盐
+var SALT = "wy-go-blog"; // 加盐
 
 $(function () {
   // 登录
