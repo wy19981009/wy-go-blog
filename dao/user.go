@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"fmt"
 	"log"
 	"wy-go-blog/models"
 )
@@ -16,6 +17,7 @@ func GetUserNameById(id int) string {
 }
 
 func GetUser(username, passwd string) *models.User {
+	fmt.Println(username, passwd)
 	row := DB.QueryRow("select * from blog_user where user_name = ? and passwd=?", username, passwd)
 	if row.Err() != nil {
 		log.Println(row.Err())

@@ -77,7 +77,7 @@ function getArticleItem(id) {
     type: "GET",
     contentType: "application/json",
     success: function (res) {
-      if (res.code != 200) {
+      if (res.code !== 200) {
         initEditor();
         return alert(res.error);
       }

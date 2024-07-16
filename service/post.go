@@ -2,6 +2,7 @@ package service
 
 import (
 	"html/template"
+	"log"
 	"wy-go-blog/config"
 	"wy-go-blog/dao"
 	"wy-go-blog/models"
@@ -34,4 +35,20 @@ func GetPostDetail(pId int) (*models.PostRes, error) {
 		postMore,
 	}
 	return postRes, nil
+}
+
+func Writing() (wr models.WritingRes) {
+	wr.Title = config.Cfg.Viewer.Title
+	wr.CdnURL = config.Cfg.System.CdnURL
+	category, err := dao.GetAllCategory()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	wr.Categorys = category
+	return
+}
+
+func SavePost(post *models.Post) {
+	dao.SavePost(post)
 }
