@@ -16,3 +16,5 @@
     ValineAppid = "lUonUeZTD814ofy7dpN3Wish-gzGzoHsz"
     ValineAppkey = "XgSuS9cpSLbkluaQfYPD5v5O"
     ValineServerURL = "https://luonuezt.lc-cn-n1-shared.com"
+    ServerURL = "127.0.0.1"
+    ServerPort = "7888"

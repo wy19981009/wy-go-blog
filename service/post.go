@@ -52,3 +52,15 @@ func Writing() (wr models.WritingRes) {
 func SavePost(post *models.Post) {
 	dao.SavePost(post)
 }
+
+func SearchPost(condition string) []models.SearchResp {
+	posts, _ := dao.GetPostSearch(condition)
+	var searchResps []models.SearchResp
+	for _, post := range posts {
+		searchResps = append(searchResps, models.SearchResp{
+			post.Pid,
+			post.Title,
+		})
+	}
+	return searchResps
+}
